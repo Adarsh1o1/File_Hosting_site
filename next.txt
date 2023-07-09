@@ -1,0 +1,28 @@
+copy link feature doooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+create folder and then upload: DONE
+handle multiple uploads: done
+created at in uploads: edit model in step 2 
+delete file and folder : file done, folder pending : FIXED
+about page
+contact page
+decide company name
+
+sharing link with primary key of user who shared the link: done
+if it is superuser thn only show delete optn: done
+organize folders and files
+show file that are in folders not ALL FILES
+
+user display in navbar dropdown with logout and profile button
+logout 
+
+important
+nav bar toggle not workin in sidebar : FIXED
+delete page redicrect have to be fixed: DONE
+
+DELETE FUNCTION WITHOUT NEW VIEW OR PAGE
+LINK SHARING feature
+
+
+misc
+progress bar
+uploading buffer

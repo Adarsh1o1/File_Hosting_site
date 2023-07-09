@@ -1,0 +1,12 @@
+{% include 'navbar.html' %}
+<div class="d-flex justify-content-center mt-5">
+  {{folder}} deleted successfully</div>
+<div class="d-flex justify-content-center mt-4">
+  {% if folder.parent_folder %}
+  <a name="uploads" class="btn btn-primary" role="button" href="{% url 'folder_contents'  folder_id=folder.parent_folder.id %}"><b>Go back
+      </b></a>
+      {% else %}
+  <a name="uploads" class="btn btn-primary" role="button" href="{% url 'myfiles'  pk=request.user.id %}"><b>Go
+      back</b></a>
+      {% endif %}
+</div>

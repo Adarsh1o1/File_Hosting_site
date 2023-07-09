@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COMPANY NAME</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/navbar-fixed-top/">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+<style>
+  .username{
+    /* border: 2px solid #5469d4; */
+    border-radius: 50px;
+    padding: 5px;
+    margin-right: 10px;
+    font-size: large;
+    color: #5469d4;
+    font-weight: bold;
+    font-style: oblique;
+  }
+  </style>
+
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-fixed-top">
+      <div class="container-fluid">
+        <h1 class="navbar-brand">COMPANY NAME</h1>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              {% if user.is_authenticated %}
+            </li>
+            
+            {% endif %}
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                More
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"></a></li>
+                <li><a class="dropdown-item" href="#">About Us</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Contact us</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                ><strong>Data is precious, Operate carefully</strong>
+              </a>
+            </li>
+          </ul>
+          {% comment %} <a
+            style="margin-right: 5px; margin-right: 5px; "
+            class="btn btn-outline-dark"
+            role="button"
+            href="#"
+            ><b>About us</b></a
+          >
+          <a
+            style="margin-right: 5px; margin-right: 5px; "
+            class="btn btn-outline-dark"
+            role="button"
+            href="#"
+            ><b>Contact us</b></a
+          > {% endcomment %}
+
+          {% if user.is_authenticated %}
+          <div class="username" >{{request.user}}</div>
+          <a
+            style="margin-right: 5px; margin-right: 5px; background-color: #5469d4;"
+            class="btn btn-primary"
+            role="button"
+            href="{% url 'logout' %}"
+            ><b>logout</b></a
+          >
+          {% else %}
+          <a
+            style="margin-right: 5px; margin-right: 5px; background-color: #5469d4;"
+            class="btn btn-primary"
+            role="button"
+            href="{% url 'login' %}"
+            ><b>login</b></a
+          >
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+</html>

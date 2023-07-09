@@ -1,0 +1,100 @@
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/navbar-fixed-top/">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+}
+.heading{
+    margin: 10px;
+}
+.material-symbols-outlined {
+    margin: 12px;
+    color: black;
+    vertical-align:middle;
+   font-size: 30px !important;
+    font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' -25,
+  'opsz' 48
+  
+}
+.folder_name{
+    display: inline;
+    text-decoration: none;
+    color: black;
+    font-size:30px;
+    font-weight: 500;
+}
+
+.list{
+    margin: 20px;
+    border-radius: 25px;
+    background-color: #d3d5df;
+    width:max-content;
+    list-style: none;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="heading"><h1>My files</h1></div>
+    <div>
+    <ul>
+        {% for folder in folders %}
+            <li class="list" ><a type="button" class="folder_name" href="{% url 'folder_contents' folder_id=folder.id %}"><span class="material-symbols-outlined">
+                folder
+                </span> {{folder.name}}</a>
+                <div style="display: inline;">
+                    <button class="btn bg-transparent" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                        <span class="material-symbols-outlined">
+                            more_vert 
+                            </span>
+                    </button>
+                    <div class="dropdown_menu dropdown-menu" >
+                        {% if request.user == files_by %}
+                    <a
+                    style="display: inline;"
+                    class="btn btn-primary"
+                    role="button"
+                    href="{% url 'delete_folder' pk=folder.id%}"
+                    ><b>delete</b> 
+                    </a> 
+                    {% endif %}
+                </div>
+                </div></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"
+  ></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+<script>
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+
+</body>
+</html>

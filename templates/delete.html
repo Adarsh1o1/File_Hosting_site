@@ -1,0 +1,6 @@
+{% include 'navbar.html' %}
+<div  class="d-flex justify-content-center mt-5" >
+{{file_name}} deleted successfully</div>
+<div class="d-flex justify-content-center mt-4">
+      <a class='btn btn-primary' href="{% url 'folder_contents' folder_id=file_name.folder.id %}">Go Back</a>
+</div>
